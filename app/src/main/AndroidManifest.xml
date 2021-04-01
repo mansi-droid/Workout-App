@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.mandev.workoutapp">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/workout_app_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/workout_app_icon"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.WorkoutApp"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ExerciseActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+
+        <!--This tag is already added by default when you create an activity along with the layout file.
+        You just need add some extra attribute as per requirement.-->
+        <activity
+            android:name=".FinishActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+
+        <!--This tag is already added by default when you create an activity along with the layout file.
+        You just need add some extra attribute as per requirement.-->
+        <activity
+            android:name=".BMIActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+
+        <!--This tag is already added by default when you create an activity along with the layout file.
+        You just need add some extra attribute as per requirement.-->
+        <activity
+            android:name=".HistoryActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+    </application>
+
+</manifest>

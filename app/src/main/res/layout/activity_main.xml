@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/main_screen_main_layout_padding"
+        tools:context=".MainActivity">
+
+        <!--In ImageView we have done :
+            1. Static height is defined in .
+            2. ImageContentDescription is defined in string.xml file. Which Defines text that briefly describes content of the view. This property is used
+                 primarily for accessibility. Since some views do not have textual
+                 representation this attribute can be used for providing such.
+            3. An image is added in drawable folder and Sets a drawable as the content of this ImageView.-->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:contentDescription="@string/image"
+            android:src="@drawable/img_main_page" />
+
+        <!--For adding the custom start Button.
+            1. Adding an Linear Layout with custom background which is defined in Drawable Folder.
+            2. Adding an static size as width and height of layout.
+            3. Adding an TextView for labeling along with the text.
+            4. Adding designing features like giving margin, adding gravity, textColor, textSize, textStyle.
+            5. Here textColor used is defined in the color.xml.-->
+        <LinearLayout
+            android:id="@+id/llStart"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="20sp"
+            android:background="@drawable/item_color_accent_border_ripple_background"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="START"
+                android:textColor="@color/colorPrimary"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:baselineAligned="false"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/llBMI"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/item_circular_color_accent_background"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BMI"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Calculator"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/llHistory"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/item_circular_color_accent_background"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:contentDescription="@string/image"
+                        android:src="@drawable/ic_calendar" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="History"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>
