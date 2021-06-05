@@ -41,9 +41,6 @@ class HistoryActivity : AppCompatActivity() {
 
         Analytics.with(applicationContext)
             .track("History Activty Started", Properties().putValue("App Name", "Workout App").putValue("HistorySize", allCompletedDatesList.size))
-        // TODO(Step 3 : Now here the dates which were printed in log.
-        //  We will pass that list to the adapter class which we have created and bind it to the recycler view.)
-        // START
         if (allCompletedDatesList.size > 0) {
             // Here if the List size is greater then 0 we will display the item in the recycler view or else we will show the text view that no data is available.
             binding.tvHistory.visibility = View.VISIBLE
@@ -63,6 +60,5 @@ class HistoryActivity : AppCompatActivity() {
             binding.rvHistory.visibility = View.GONE
             binding.tvNoDataAvailable.visibility = View.VISIBLE
         }
-        // END
     }
 }

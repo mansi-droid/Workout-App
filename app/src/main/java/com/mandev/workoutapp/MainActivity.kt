@@ -10,6 +10,7 @@ import com.segment.analytics.Properties
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+
     /**
      * This method is auto created by Android when the Activity Class is created.
      */
