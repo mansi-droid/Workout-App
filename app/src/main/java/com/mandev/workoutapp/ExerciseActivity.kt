@@ -10,8 +10,6 @@ import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +17,6 @@ import com.mandev.workoutapp.databinding.ActivityExerciseBinding
 import com.segment.analytics.Analytics
 import com.segment.analytics.Properties
 import java.util.*
-import kotlin.collections.ArrayList
 
 class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     lateinit var binding: ActivityExerciseBinding
@@ -184,7 +181,9 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             override fun onFinish() {
                 currentExercisePosition++
 
-                exerciseList!![currentExercisePosition].setIsSelected(true) // Current Item is selected
+                exerciseList!![currentExercisePosition].setIsSelected(
+                    true
+                ) // Current Item is selected
                 exerciseAdapter!!.notifyDataSetChanged() // Notified the current item to adapter class to reflect it into UI.
 
                 setupExerciseView()
@@ -244,8 +243,12 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             }
 
             override fun onFinish() {
-                exerciseList!![currentExercisePosition].setIsSelected(false) // exercise is completed so selection is set to false
-                exerciseList!![currentExercisePosition].setIsCompleted(true) // updating in the list that this exercise is completed
+                exerciseList!![currentExercisePosition].setIsSelected(
+                    false
+                ) // exercise is completed so selection is set to false
+                exerciseList!![currentExercisePosition].setIsCompleted(
+                    true
+                ) // updating in the list that this exercise is completed
                 exerciseAdapter!!.notifyDataSetChanged() // Notifying to adapter class.
 
                 if (currentExercisePosition < 11) {

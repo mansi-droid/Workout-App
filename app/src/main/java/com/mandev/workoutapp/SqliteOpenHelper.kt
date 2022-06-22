@@ -43,7 +43,7 @@ class SqliteOpenHelper(
      * This function is called when the database version is changed.
      */
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_HISTORY) // It drops the existing history table
+        db.execSQL("DROP TABLE IF EXISTS $TABLE_HISTORY") // It drops the existing history table
         onCreate(db) // Calls the onCreate function so all the updated table will be created.
     }
 

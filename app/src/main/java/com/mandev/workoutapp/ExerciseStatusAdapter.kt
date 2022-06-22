@@ -9,7 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mandev.workoutapp.databinding.ItemExerciseStatusBinding
 
-class ExerciseStatusAdapter(val items: ArrayList<ExerciseModel>, val context: Context) :
+class ExerciseStatusAdapter(private val items: ArrayList<ExerciseModel>, val context: Context) :
     RecyclerView.Adapter<ExerciseStatusAdapter.ViewHolder>() {
 
     /**
@@ -19,7 +19,9 @@ class ExerciseStatusAdapter(val items: ArrayList<ExerciseModel>, val context: Co
      * {@link ViewHolder} and initializes some private fields to be used by RecyclerView.
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v: ItemExerciseStatusBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_exercise_status, parent, false)
+        val v: ItemExerciseStatusBinding = DataBindingUtil.inflate(
+            LayoutInflater.from(parent.context), R.layout.item_exercise_status, parent, false
+        )
         return ViewHolder(v)
     }
 
@@ -48,7 +50,9 @@ class ExerciseStatusAdapter(val items: ArrayList<ExerciseModel>, val context: Co
                     context,
                     R.drawable.item_circular_thin_color_accent_border
                 )
-            holder.bindingAdapter.tvItem.setTextColor(Color.parseColor("#212121")) // Parse the color string, and return the corresponding color-int.
+            holder.bindingAdapter.tvItem.setTextColor(
+                Color.parseColor("#212121")
+            ) // Parse the color string, and return the corresponding color-int.
         } else if (model.getIsCompleted()) {
             holder.bindingAdapter.tvItem.background =
                 ContextCompat.getDrawable(context, R.drawable.item_circular_color_accent_background)
@@ -70,7 +74,6 @@ class ExerciseStatusAdapter(val items: ArrayList<ExerciseModel>, val context: Co
     /**
      * A ViewHolder describes an item view and metadata about its place within the RecyclerView.
      */
-    inner class ViewHolder(bindingAdapter: ItemExerciseStatusBinding) : RecyclerView.ViewHolder(bindingAdapter.root) {
-        var bindingAdapter: ItemExerciseStatusBinding = bindingAdapter
-    }
+    inner class ViewHolder(var bindingAdapter: ItemExerciseStatusBinding) :
+        RecyclerView.ViewHolder(bindingAdapter.root)
 }

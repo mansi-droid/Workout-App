@@ -8,7 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mandev.workoutapp.databinding.ItemHistoryRowBinding
 
-class HistoryAdapter(val context: Context, val items: ArrayList<String>) :
+class HistoryAdapter(val context: Context, private val items: ArrayList<String>) :
     RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -17,7 +17,7 @@ class HistoryAdapter(val context: Context, val items: ArrayList<String>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val date: String = items.get(position)
+        val date: String = items[position]
 
         holder.bindingAdapter.tvPosition.text = (position + 1).toString()
         holder.bindingAdapter.tvItem.text = date
@@ -39,7 +39,5 @@ class HistoryAdapter(val context: Context, val items: ArrayList<String>) :
         return items.size
     }
 
-    inner class ViewHolder(bindingAdapter: ItemHistoryRowBinding) : RecyclerView.ViewHolder(bindingAdapter.root) {
-        var bindingAdapter: ItemHistoryRowBinding = bindingAdapter
-    }
+    inner class ViewHolder(var bindingAdapter: ItemHistoryRowBinding) : RecyclerView.ViewHolder(bindingAdapter.root)
 }
