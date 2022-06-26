@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         val analytics = Analytics.Builder(
             applicationContext,
-            "GWCIxxb4coPAurTTdGiTLTwAKih76R0p"
+            "0Wf3lmYe7NVI3ftnvd2CcldmnohaQ40v"
         )
             .trackApplicationLifecycleEvents()
             .recordScreenViews()

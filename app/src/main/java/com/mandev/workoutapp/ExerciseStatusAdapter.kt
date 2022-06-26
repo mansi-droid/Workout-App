@@ -39,12 +39,12 @@ class ExerciseStatusAdapter(private val items: ArrayList<ExerciseModel>, val con
 
         val model: ExerciseModel = items[position]
 
-        holder.bindingAdapter.tvItem.text = model.getId().toString()
+        holder.bindingAdapter.tvItem.text = model.id.toString()
 
         // Updating the background and text color according to the flags what is in the list.
         // A link to set text color programmatically and same way we can set the drawable background also instead of color.
         // https://stackoverflow.com/questions/8472349/how-to-set-text-color-to-a-text-view-programmatically
-        if (model.getIsSelected()) {
+        if (model.isSelected == true) {
             holder.bindingAdapter.tvItem.background =
                 ContextCompat.getDrawable(
                     context,
@@ -53,7 +53,7 @@ class ExerciseStatusAdapter(private val items: ArrayList<ExerciseModel>, val con
             holder.bindingAdapter.tvItem.setTextColor(
                 Color.parseColor("#212121")
             ) // Parse the color string, and return the corresponding color-int.
-        } else if (model.getIsCompleted()) {
+        } else if (model.isCompleted == true) {
             holder.bindingAdapter.tvItem.background =
                 ContextCompat.getDrawable(context, R.drawable.item_circular_color_accent_background)
             holder.bindingAdapter.tvItem.setTextColor(Color.parseColor("#FFFFFF"))

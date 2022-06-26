@@ -31,21 +31,16 @@
             android:screenOrientation="portrait"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
-
-
         <activity
             android:name=".FinishActivity"
             android:screenOrientation="portrait"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
-
         <activity
             android:name=".BMIActivity"
             android:screenOrientation="portrait"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
-
-
         <activity
             android:name=".HistoryActivity"
             android:screenOrientation="portrait"

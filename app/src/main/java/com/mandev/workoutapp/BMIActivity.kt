@@ -11,11 +11,11 @@ import java.math.BigDecimal
 import java.math.RoundingMode
 
 class BMIActivity : AppCompatActivity() {
+    lateinit var binding: ActivityBmiBinding
 
     companion object {
         private const val METRIC_UNITS_VIEW = "METRIC_UNIT_VIEW" // Metric Unit View
         private const val US_UNITS_VIEW = "US_UNIT_VIEW" // US Unit View
-        lateinit var binding: ActivityBmiBinding
     }
 
     private var currentVisibleView: String =

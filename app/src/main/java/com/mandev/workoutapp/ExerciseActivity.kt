@@ -142,13 +142,13 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         // Here we have set the upcoming exercise name to the text view
         // Here as the current position is -1 by default so to selected from the list it should be 0 so we have increased it by +1.
-        binding.tvUpcomingExerciseName.text = exerciseList!![currentExercisePosition + 1].getName()
+        binding.tvUpcomingExerciseName.text = exerciseList!![currentExercisePosition + 1].name
         Analytics.with(applicationContext)
             .track(
                 "Exercise Activty Started",
                 Properties().putValue("App Name", "Workout App").putValue(
                     "Exercise Upcoming Name",
-                    exerciseList!![currentExercisePosition + 1].getName()
+                    exerciseList!![currentExercisePosition + 1].name
                 )
             )
         // This function is used to set the progress details.
@@ -181,9 +181,8 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             override fun onFinish() {
                 currentExercisePosition++
 
-                exerciseList!![currentExercisePosition].setIsSelected(
-                    true
-                ) // Current Item is selected
+                exerciseList!![currentExercisePosition].isSelected = true
+                // Current Item is selected
                 exerciseAdapter!!.notifyDataSetChanged() // Notified the current item to adapter class to reflect it into UI.
 
                 setupExerciseView()
@@ -212,10 +211,10 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         /**
          * Here current exercise name and image is set to exercise view.
          */
-        binding.ivImage.setImageResource(exerciseList!![currentExercisePosition].getImage())
-        binding.tvExerciseName.text = exerciseList!![currentExercisePosition].getName()
+        binding.ivImage.setImageResource(exerciseList!![currentExercisePosition].image!!)
+        binding.tvExerciseName.text = exerciseList!![currentExercisePosition].name!!
 
-        speakOut(exerciseList!![currentExercisePosition].getName())
+        speakOut(exerciseList!![currentExercisePosition].name!!)
 
         setExerciseProgressBar()
     }
@@ -243,12 +242,10 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             }
 
             override fun onFinish() {
-                exerciseList!![currentExercisePosition].setIsSelected(
-                    false
-                ) // exercise is completed so selection is set to false
-                exerciseList!![currentExercisePosition].setIsCompleted(
-                    true
-                ) // updating in the list that this exercise is completed
+                exerciseList!![currentExercisePosition].isSelected = false
+                 // exercise is completed so selection is set to false
+                exerciseList!![currentExercisePosition].isCompleted = true
+                 // updating in the list that this exercise is completed
                 exerciseAdapter!!.notifyDataSetChanged() // Notifying to adapter class.
 
                 if (currentExercisePosition < 11) {
