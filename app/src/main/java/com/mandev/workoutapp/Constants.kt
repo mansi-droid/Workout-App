@@ -1,15 +1,7 @@
 package com.mandev.workoutapp
 
-/**
- * Constant Class where you can add the constant values of the project.
- */
 class Constants {
     companion object {
-
-        // The drawable images used here is added in the drawable folder.
-        /**
-         * Here we are adding all exercises to a single list with all the default values.
-         */
         fun defaultExerciseList(): ArrayList<ExerciseModel> {
 
             val exerciseList = ArrayList<ExerciseModel>()
