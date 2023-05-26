@@ -6,13 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mandev.workoutapp.databinding.ActivityHistoryBinding
-import com.segment.analytics.Analytics
-import com.segment.analytics.Properties
 
 class HistoryActivity : AppCompatActivity() {
-    lateinit var binding: ActivityHistoryBinding
+    lateinit var binding : ActivityHistoryBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState : Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_history)
 
@@ -37,10 +35,8 @@ class HistoryActivity : AppCompatActivity() {
         val dbHandler = SqliteOpenHelper(this, null)
 
         val allCompletedDatesList =
-            dbHandler.getAllCompletedDatesList() // List of history table data
+                dbHandler.getAllCompletedDatesList() // List of history table data
 
-        Analytics.with(applicationContext)
-            .track("History Activty Started", Properties().putValue("App Name", "Workout App").putValue("HistorySize", allCompletedDatesList.size))
         if (allCompletedDatesList.size > 0) {
             // Here if the List size is greater then 0 we will display the item in the recycler view or else we will show the text view that no data is available.
             binding.tvHistory.visibility = View.VISIBLE

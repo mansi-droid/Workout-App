@@ -8,16 +8,16 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mandev.workoutapp.databinding.ItemHistoryRowBinding
 
-class HistoryAdapter(val context: Context, private val items: ArrayList<String>) :
+class HistoryAdapter(val context : Context, private val items : ArrayList<String>) :
     RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v: ItemHistoryRowBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_history_row, parent, false)
+    override fun onCreateViewHolder(parent : ViewGroup, viewType : Int) : ViewHolder {
+        val v : ItemHistoryRowBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_history_row, parent, false)
         return ViewHolder(v)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val date: String = items[position]
+    override fun onBindViewHolder(holder : ViewHolder, position : Int) {
+        val date : String = items[position]
 
         holder.bindingAdapter.tvPosition.text = (position + 1).toString()
         holder.bindingAdapter.tvItem.text = date
@@ -34,10 +34,10 @@ class HistoryAdapter(val context: Context, private val items: ArrayList<String>)
         }
     }
 
-
-    override fun getItemCount(): Int {
+    override fun getItemCount() : Int {
         return items.size
     }
 
-    inner class ViewHolder(var bindingAdapter: ItemHistoryRowBinding) : RecyclerView.ViewHolder(bindingAdapter.root)
+    inner class ViewHolder(var bindingAdapter : ItemHistoryRowBinding) :
+        RecyclerView.ViewHolder(bindingAdapter.root)
 }

@@ -5,15 +5,14 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.mandev.workoutapp.databinding.ActivityFinishBinding
-import com.segment.analytics.Analytics
-import com.segment.analytics.Properties
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Calendar
+import java.util.Locale
 
 class FinishActivity : AppCompatActivity() {
-    lateinit var binding: ActivityFinishBinding
+    lateinit var binding : ActivityFinishBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState : Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_finish)
 
@@ -22,14 +21,10 @@ class FinishActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.toolbarFinishActivity.setNavigationOnClickListener {
-            Analytics.with(applicationContext)
-                .track("Finish Activty Started", Properties().putValue("App Name", "Workout App").putValue("Finish Status","Pending"))
             onBackPressed()
         }
 
         binding.btnFinish.setOnClickListener {
-            Analytics.with(applicationContext)
-                .track("Finish Activty Started", Properties().putValue("App Name", "Workout App").putValue("Finish Status","Completed"))
             finish()
         }
 

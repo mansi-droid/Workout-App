@@ -9,7 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mandev.workoutapp.databinding.ItemExerciseStatusBinding
 
-class ExerciseStatusAdapter(private val items: ArrayList<ExerciseModel>, val context: Context) :
+class ExerciseStatusAdapter(private val items : ArrayList<ExerciseModel>, val context : Context) :
     RecyclerView.Adapter<ExerciseStatusAdapter.ViewHolder>() {
 
     /**
@@ -18,8 +18,8 @@ class ExerciseStatusAdapter(private val items: ArrayList<ExerciseModel>, val con
      * create a new
      * {@link ViewHolder} and initializes some private fields to be used by RecyclerView.
      */
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v: ItemExerciseStatusBinding = DataBindingUtil.inflate(
+    override fun onCreateViewHolder(parent : ViewGroup, viewType : Int) : ViewHolder {
+        val v : ItemExerciseStatusBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context), R.layout.item_exercise_status, parent, false
         )
         return ViewHolder(v)
@@ -35,9 +35,9 @@ class ExerciseStatusAdapter(private val items: ArrayList<ExerciseModel>, val con
      * of the given type. You can either create a new View manually or inflate it from an XML
      * layout file.
      */
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder : ViewHolder, position : Int) {
 
-        val model: ExerciseModel = items[position]
+        val model : ExerciseModel = items[position]
 
         holder.bindingAdapter.tvItem.text = model.id.toString()
 
@@ -46,20 +46,20 @@ class ExerciseStatusAdapter(private val items: ArrayList<ExerciseModel>, val con
         // https://stackoverflow.com/questions/8472349/how-to-set-text-color-to-a-text-view-programmatically
         if (model.isSelected == true) {
             holder.bindingAdapter.tvItem.background =
-                ContextCompat.getDrawable(
-                    context,
-                    R.drawable.item_circular_thin_color_accent_border
-                )
+                    ContextCompat.getDrawable(
+                        context,
+                        R.drawable.item_circular_thin_color_accent_border
+                    )
             holder.bindingAdapter.tvItem.setTextColor(
                 Color.parseColor("#212121")
             ) // Parse the color string, and return the corresponding color-int.
         } else if (model.isCompleted == true) {
             holder.bindingAdapter.tvItem.background =
-                ContextCompat.getDrawable(context, R.drawable.item_circular_color_accent_background)
+                    ContextCompat.getDrawable(context, R.drawable.item_circular_color_accent_background)
             holder.bindingAdapter.tvItem.setTextColor(Color.parseColor("#FFFFFF"))
         } else {
             holder.bindingAdapter.tvItem.background =
-                ContextCompat.getDrawable(context, R.drawable.item_circular_color_gray_background)
+                    ContextCompat.getDrawable(context, R.drawable.item_circular_color_gray_background)
             holder.bindingAdapter.tvItem.setTextColor(Color.parseColor("#212121"))
         }
     }
@@ -67,13 +67,13 @@ class ExerciseStatusAdapter(private val items: ArrayList<ExerciseModel>, val con
     /**
      * Gets the number of items in the list
      */
-    override fun getItemCount(): Int {
+    override fun getItemCount() : Int {
         return items.size
     }
 
     /**
      * A ViewHolder describes an item view and metadata about its place within the RecyclerView.
      */
-    inner class ViewHolder(var bindingAdapter: ItemExerciseStatusBinding) :
+    inner class ViewHolder(var bindingAdapter : ItemExerciseStatusBinding) :
         RecyclerView.ViewHolder(bindingAdapter.root)
 }
